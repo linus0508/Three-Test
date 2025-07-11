@@ -83,11 +83,13 @@ function updateCharacter(delta) {
   const dir = new THREE.Vector3();
 
   const forward = keys['w'];
+  const sprint = keys['p'];
   const backward = keys['s'];
   const left = keys['a'];
   const right = keys['d'];
 
   if (forward) dir.z -= 1;
+  if (sprint) dir.z -= 1;
   if (backward) dir.z += 1;
   if (left) dir.x -= 1;
   if (right) dir.x += 1;
@@ -149,11 +151,12 @@ function updateCharacter(delta) {
   let nextAction = null;
 
   // Beispiel-Indizes (bitte anpassen)
-  const idleIndex = 5;
-  const walkForwardIndex = 16;
-  const walkBackwardIndex = 17;
-  const turnLeftIndex = 18;
-  const turnRightIndex = 19;
+  const idleIndex = 1;
+  const walkForwardIndex = 4;
+  const sprintForwardIndex = 3;
+  const walkBackwardIndex = 4;
+  const turnLeftIndex = 4;
+  const turnRightIndex = 4;
 
   if (isMoving) {
     if (forward || backward) {
@@ -161,6 +164,8 @@ function updateCharacter(delta) {
         nextAction = actions[walkBackwardIndex];
       } else if (actions[walkForwardIndex]) {
         nextAction = actions[walkForwardIndex];
+      } else if (actions[sprintForwardIndex]) {
+        nextAction = actions[sprintForwardIndex];
       }
     } else if (left && actions[turnLeftIndex]) {
       nextAction = actions[turnLeftIndex];
