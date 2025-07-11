@@ -44,7 +44,7 @@ function init() {
 
   // Figur laden
   const loader = new GLTFLoader();
-  loader.load('Business Man.glb', gltf => {
+  loader.load('Generic Male.glb', gltf => {
     character = gltf.scene;
     character.position.set(0, 0, 0);
     character.scale.set(1, 1, 1);

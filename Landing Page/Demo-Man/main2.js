@@ -61,7 +61,7 @@ dropdown.style.zIndex = '100';
 document.body.appendChild(dropdown);
 
 loader.load(
-  './Business Man.glb',
+  './KristianMan.glb',
   function (gltf) {
     const model = gltf.scene;
     model.traverse((node) => {
